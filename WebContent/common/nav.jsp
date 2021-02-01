@@ -3,10 +3,14 @@
     pageEncoding="UTF-8"%>
 <%
 	String url = request.getRequestURI().replaceAll("/BBS/","");
-	String[] arr = {"",""};
+	String[] arr = {"","","",""};
 	if(url.equals("main.jsp"))
 		arr[0] = "active";
-	else if(url.equals("bbs.jsp"))
+	else if(url.equals("login.jsp"))
+		arr[2] = "active";
+	else if(url.equals("join.jsp"))
+		arr[3] = "active";
+	else
 		arr[1] = "active";
 %>
 <nav class="navbar navbar-default">
@@ -22,11 +26,11 @@
 	</div>
 	<div ckass="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li class="<%= arr[0] %>"><a href="main.jsp">메인</a></li>
+			<li class="<%= arr[0] %> <%= request.getParameter("userID")%>"><a href="main.jsp">메인</a></li>
 			<li class="<%= arr[1] %>"><a href="bbs.jsp">게시판</a></li>
 		</ul>
 		<%
-			if(request.getParameter("userID") == null){
+			if(request.getParameter("userID").equals("null")){
 		%>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
@@ -34,8 +38,8 @@
 					data-toggle="dropdown" role="button" area-haspupup="true"
 					area-expanded="false">접속하기<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="login.jsp">로그인</a></li>
-					<li><a href="join.jsp">회원가입</a></li>
+					<li class="<%= arr[2] %>"><a href="login.jsp">로그인</a></li>
+					<li class="<%= arr[3] %>"><a href="join.jsp">회원가입</a></li>
 				</ul>
 			</li>
 		</ul>
