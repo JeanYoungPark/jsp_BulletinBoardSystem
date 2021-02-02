@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="util.Utility" %>
 <%@ page import="user.UserDAO" %><!-- 내가 만든 클래스 불러오기 -->
 <%@ page import="java.io.PrintWriter" %><!-- 자바스크립트를 작성하기 위해 사용 -->
 <% request.setCharacterEncoding("utf-8"); %> <!-- 넘어오는 모든 데이터를 UTF-8으로 받을 수 있도록 도움 -->
@@ -20,7 +21,8 @@
 		script.println("</script>");
 	}
 	UserDAO userDAO = new UserDAO();
-	int result = userDAO.login(user.getUserID(),user.getUserPassword());
+	String password = Utility.encoding(user.getUserPassword());
+	int result = userDAO.login(user.getUserID(),password);
 	if(result == 1){
 		session.setAttribute("userID", user.getUserID());
 		PrintWriter script = response.getWriter();
