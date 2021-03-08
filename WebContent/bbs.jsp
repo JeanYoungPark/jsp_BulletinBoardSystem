@@ -10,12 +10,14 @@
 <jsp:include page="./common/nav.jsp" flush="false">
 	<jsp:param name="userID" value="<%= userID %>" />
 </jsp:include>
+
 <%
 	int pageNumber = 1;
 	if(request.getParameter("pageNumber") != null){
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
 %>
+<!-- 필요없음 -->
 <div class="container">
 	<div class="row">
 		<table class="table table-striped" style="text-align:center; border:1px solid #ddd">
