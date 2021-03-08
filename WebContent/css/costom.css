@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 * {font-family: 'Noto Sans KR', sans-serif;}
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -19,6 +19,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	color:#333;
 }
+h1, h2, h3, h4, h5, h6 {
+	color:#333;
+}
+
 ol, ul {
 	list-style: none;
 }

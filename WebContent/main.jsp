@@ -62,7 +62,7 @@
 		<div class="pull-right col-lg-3">
 		<div class="row loginBox">
 		<%
-			if(userID.equals("null")){
+			if(userID == null){
 		%>
 			<h5>로그인</h5>
 			<form method="post" action="loginAction.jsp">
