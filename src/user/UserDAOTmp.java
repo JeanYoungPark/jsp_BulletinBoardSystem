@@ -58,4 +58,23 @@ public class UserDAOTmp {
 		}
 		return -1;
 	}
+	
+	public User userInfo(String userID) {
+		User user = new User();
+		
+		String SQL = "SELECT userID, userName, userEmail FROM user WHERE userID = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL); //인젝션 방어
+			pstmt.setString(1,userID);
+			rs = pstmt.executeQuery(); //결과
+			if(rs.next()) { //결과 값 존재
+				user.setUserID(rs.getString(1));
+				user.setUserName(rs.getString(2));
+				user.setUserEmail(rs.getString(3));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return user;
+	}
 }

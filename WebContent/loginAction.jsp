@@ -7,19 +7,20 @@
 <jsp:useBean id="user" class="user.User" scope="page"/><!-- java bean 사용 표시 page사용으로 현재페이지에서만 사용을 알림-->
 <jsp:setProperty name="user" property="userID"/>
 <jsp:setProperty name="user" property="userPassword"/>
-<%@ include file="./common/var.jsp"%>
-<jsp:include page="./common/header.jsp" flush="false" />
-<jsp:include page="./common/nav.jsp" flush="false">
-	<jsp:param name="userID" value="<%= userID %>" />
-</jsp:include>
+
 <%		
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+	}
+
 	if(userID != null){
 		PrintWriter script  = response.getWriter();
 		script.println("<script>");
 		script.println("alert('이미 로그인이 되어있습니다.')");
 		script.println("locatin.href='main.jsp'");
 		script.println("</script>");
-	}
+	} 
 	UserDAO userDAO = new UserDAO();
 	String password = Utility.encoding(user.getUserPassword());
 	int result = userDAO.login(user.getUserID(),password);
@@ -49,4 +50,4 @@
 		script.println("</script>");
 	}
 %>
-<jsp:include page="./common/footer.jsp" flush="false" />
+<%-- <jsp:include page="./common/footer.jsp" flush="false" /> --%>

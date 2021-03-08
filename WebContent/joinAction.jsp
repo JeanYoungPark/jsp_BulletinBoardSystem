@@ -11,12 +11,13 @@
 <jsp:setProperty name="user" property="userName"/>
 <jsp:setProperty name="user" property="userGender"/>
 <jsp:setProperty name="user" property="userEmail"/> --%>
-<%@ include file="./common/var.jsp"%>
-<jsp:include page="./common/header.jsp" flush="false" />
-<jsp:include page="./common/nav.jsp" flush="false">
-	<jsp:param name="userID" value="<%= userID %>" />
-</jsp:include>
+
 <%		
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+	}
+	
 	if(userID != null){
 		PrintWriter script  = response.getWriter();
 		script.println("<script>");
