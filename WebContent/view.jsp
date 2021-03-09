@@ -62,4 +62,7 @@
 		<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
 	</div>
 </div>
+<script type="text/javascript">
+	var bbsID = <%= bbsID %>;
+</script>
 <jsp:include page="./common/footer.jsp" flush="false" />

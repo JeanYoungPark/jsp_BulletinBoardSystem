@@ -1,0 +1,10 @@
+if(bbsID){
+	$.ajax({
+	   	url:"./viewAction.jsp",
+	   	dataType:"json",
+	 	data:{bbsID:bbsID},
+	   	type:"POST"
+	   }).done(function(data){
+	   		console.log(data.result);
+	});
+}
