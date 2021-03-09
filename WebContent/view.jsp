@@ -23,7 +23,7 @@
 	}
 	Bbs bbs = new BbsDAO().getBbs(bbsID);
 %>
-<div class="container">
+<div id="view" class="container">
 	<div class="row">
 		<table class="table table-striped" style="text-align:center; border:1px solid #ddd">
 			<thead>
