@@ -11,10 +11,18 @@
 	<jsp:param name="userID" value="<%=userID%>" />
 </jsp:include>
 <%
-int pageNumber = 1;
-if (request.getParameter("pageNumber") != null) {
-	pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-}
+	int pageNumber = 1;
+	if (request.getParameter("pageNumber") != null) {
+		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+	}
+	BbsDAO bbsDAO = new BbsDAO();
+	ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
+	String val = "";
+	for (int i = 0; i < list.size(); i++) {
+		val += "<tr><td>"+list.get(i).getBbsID()+"</td><td><a href='view.jsp?bbsID="+list.get(i).getBbsID()+"'>"+list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+				.replaceAll("\n", "<br>")+"</a></td><td>"+list.get(i).getUserID()+"</td><td>"+list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시"
+				+ list.get(i).getBbsDate().substring(14, 16) + "분</td></tr>";
+	}
 %>
 <div class="container">
 	<div class="row">
@@ -30,22 +38,7 @@ if (request.getParameter("pageNumber") != null) {
 					</tr>
 				</thead>
 				<tbody>
-					<%
-					BbsDAO bbsDAO = new BbsDAO();
-					ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
-					for (int i = 0; i < list.size(); i++) {
-					%>
-					<tr>
-						<td><%=list.get(i).getBbsID()%></td>
-						<td><a href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>"><%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
-		.replaceAll("\n", "<br>")%></a></td>
-						<td><%=list.get(i).getUserID()%></td>
-						<td><%=list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시"
-		+ list.get(i).getBbsDate().substring(14, 16) + "분"%></td>
-					</tr>
-					<%
-					}
-					%>
+					<%= val %>
 				</tbody>
 			</table>
 			<%
@@ -92,14 +85,9 @@ if (request.getParameter("pageNumber") != null) {
 				}
 				%>
 			</div>
-			<div class="row favArticle">
+			<div id = "favArticle" class="row">
 				<h5>인기 게시글</h5>
-				<ul>
-					<li><a href="#">안녕하세ssssssssssssssssssssssssssssssssssssssssssssssssss요!</a></li>
-					<li><a href="#">안녕하세요!</a></li>
-					<li><a href="#">안녕하세요!</a></li>
-					<li><a href="#">안녕하세요!</a></li>
-				</ul>
+				<ul id="favList"></ul>
 			</div>
 		</div>
 	</div>

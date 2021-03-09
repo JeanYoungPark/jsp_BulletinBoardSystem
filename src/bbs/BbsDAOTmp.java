@@ -164,4 +164,23 @@ public class BbsDAOTmp {
 			e.printStackTrace();
 		}
 	}
+	
+	public ArrayList<Bbs> favArticleList() {
+		String SQL = "SELECT * FROM bbs WHERE bbsAvailable = 1 ORDER BY bbsViewCount DESC LIMIT 5";
+		ArrayList<Bbs> list = new ArrayList<Bbs>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				list.add(bbs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
