@@ -4,9 +4,7 @@
 <%@ page import="bbs.BbsDAO"%>
 <%@ page import="bbs.Bbs"%>
 <%@ page import="java.util.ArrayList"%>
-<%
-request.setCharacterEncoding("utf-8");
-%>
+<% request.setCharacterEncoding("utf-8"); %>
 <%@ include file="./common/var.jsp"%>
 <jsp:include page="./common/header.jsp" flush="false" />
 <jsp:include page="./common/nav.jsp" flush="false">
