@@ -153,4 +153,15 @@ public class BbsDAOTmp {
 		}
 		return -1;
 	}
+	
+	public void viewCountAdd(String bbsID) {
+		String SQL = "UPDATE bbs SET bbsViewCount=bbsViewCount+1 WHERE bbsID=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, bbsID);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
