@@ -11,11 +11,20 @@
 	<jsp:param name="userID" value="<%=userID%>" />
 </jsp:include>
 <%
+	BbsDAO bbsDAO = new BbsDAO();
+
+	int total = bbsDAO.boardNum();
+	String pg = "";
+	
+	for(int i=0; i < total; i++){
+		pg += "<span data='"+(i+1)+"'>"+(i+1)+"</span>";
+	}
+
 	int pageNumber = 1;
 	if (request.getParameter("pageNumber") != null) {
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
-	BbsDAO bbsDAO = new BbsDAO();
+	
 	ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
 	String val = "";
 	for (int i = 0; i < list.size(); i++) {
@@ -26,7 +35,7 @@
 %>
 <div class="container">
 	<div class="row">
-		<div class="pull-left col-lg-9">
+		<div id="board" class="pull-left col-lg-9">
 			<table class="table table-striped"
 				style="text-align: center; border: 1px solid #ddd">
 				<thead>
@@ -41,6 +50,7 @@
 					<%= val %>
 				</tbody>
 			</table>
+			<p id="pg"><%= pg %></p>
 			<%
 			if (pageNumber != 1) {
 			%>

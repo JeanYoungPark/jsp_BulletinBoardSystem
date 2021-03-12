@@ -58,5 +58,12 @@ a:hover {
 	display:block; padding:5px 0; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;
 }
 
+#pg {
+	text-align:center;
+}
 
+#pg span {
+	padding:0 10px;
+	cursor:pointer;
+}
 

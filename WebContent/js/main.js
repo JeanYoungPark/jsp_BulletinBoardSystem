@@ -22,4 +22,8 @@ $(document).ready(function(){
 			}
 		});
 	}
+	
+	if($("#board").length){
+		//ajax로 보드 가져오기
+	}
 });
