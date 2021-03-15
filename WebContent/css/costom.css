@@ -62,8 +62,10 @@ a:hover {
 	text-align:center;
 }
 
-#pg span {
+#pg a, #pg span {
 	padding:0 10px;
-	cursor:pointer;
+}
+#pg span.on {
+	color:red;
 }
 

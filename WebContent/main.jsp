@@ -5,26 +5,18 @@
 <%@ page import="bbs.Bbs"%>
 <%@ page import="java.util.ArrayList"%>
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ include file="./common/var.jsp"%>
-<jsp:include page="./common/header.jsp" flush="false" />
-<jsp:include page="./common/nav.jsp" flush="false">
-	<jsp:param name="userID" value="<%=userID%>" />
-</jsp:include>
+<%@ include file="/common/var.jsp" %>
+<%@ include file="/common/header.jsp" %>
+<%@ include file="/common/nav.jsp" %>
 <%
 	BbsDAO bbsDAO = new BbsDAO();
-
-	int total = bbsDAO.boardNum();
-	String pg = "";
-	
-	for(int i=0; i < total; i++){
-		pg += "<span data='"+(i+1)+"'>"+(i+1)+"</span>";
-	}
 
 	int pageNumber = 1;
 	if (request.getParameter("pageNumber") != null) {
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
 	
+	//게시글 리스트
 	ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
 	String val = "";
 	for (int i = 0; i < list.size(); i++) {
@@ -32,6 +24,29 @@
 				.replaceAll("\n", "<br>")+"</a></td><td>"+list.get(i).getUserID()+"</td><td>"+list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시"
 				+ list.get(i).getBbsDate().substring(14, 16) + "분</td></tr>";
 	}
+	
+	//페이저
+	int total = bbsDAO.boardNum();
+	String pg = "";
+	int nextPg, prevPg, stNum = 0;
+	stNum = (pageNumber%10 > 0)?pageNumber/10:((pageNumber/10)-1); //0으로 끝나는 페이지 처리 다르게
+	
+	prevPg = pageNumber/10*10;
+	if (pageNumber > 10) pg+= "<a href='main.jsp?pageNumber="+prevPg+"'>&lt;&lt;</a>";
+	
+	for(int i=stNum*10; i < total && i < stNum*10+10; i++){
+		if(pageNumber == i+1) {
+			pg += "<span class='on'>"+(i+1)+"</span>";
+		}else {
+			pg += "<a href='main.jsp?pageNumber="+(i+1)+"'>"+(i+1)+"</a>";	
+		}
+	}
+	
+	nextPg = ((stNum+1)*10)+1;
+	if (bbsDAO.nextPage(nextPg)) {
+		pg+= "<a href='main.jsp?pageNumber="+nextPg+"'>&gt;&gt;</a>";	
+	}
+	
 %>
 <div class="container">
 	<div class="row">
@@ -51,20 +66,6 @@
 				</tbody>
 			</table>
 			<p id="pg"><%= pg %></p>
-			<%
-			if (pageNumber != 1) {
-			%>
-			<a href="bbs.jsp?pageNumber=<%=pageNumber - 1%>"
-				class="btn btn-success btn-arraw-left">이전</a>
-			<%
-			}
-			if (bbsDAO.nextPage(pageNumber + 1)) {
-			%>
-			<a href="bbs.jsp?pageNumber=<%=pageNumber + 1%>"
-				class="btn btn-success btn-arraw-right">다음</a>
-			<%
-			}
-			%>
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
 		</div>
 		<div class="pull-right col-lg-3">
@@ -102,4 +103,4 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="./common/footer.jsp" flush="false" />
+<%@ include file="/common/footer.jsp" %>
