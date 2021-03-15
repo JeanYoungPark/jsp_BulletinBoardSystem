@@ -3,8 +3,7 @@
 <%@ page import="bbs.Bbs" %>
 <%@ page import="bbs.BbsDAO" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ include file="./common/var.jsp"%>
-<jsp:include page="./common/header.jsp" flush="false" />
+<%@ include file="/common/var.jsp"%>
 <%
 	if(userID == null){
 		PrintWriter script  = response.getWriter();
@@ -22,7 +21,7 @@
 		PrintWriter script  = response.getWriter();
 		script.println("<script>");
 		script.println("alert('유효하지 않은 글입니다.')");
-		script.println("location.href='bbs.jsp'");
+		script.println("location.href='main.jsp'");
 		script.println("</script>");
 	}
 	Bbs bbs = new BbsDAO().getBbs(bbsID);
@@ -30,7 +29,7 @@
 		PrintWriter script  = response.getWriter();
 		script.println("<script>");
 		script.println("alert('권한이 없습니다.')");
-		script.println("location.href='bbs.jsp'");
+		script.println("location.href='main.jsp'");
 		script.println("</script>");
 	}else{
 		BbsDAO bbsDAO = new BbsDAO();
@@ -44,9 +43,8 @@
 		}else {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("location.href='bbs.jsp'");
+			script.println("location.href='main.jsp'");
 			script.println("</script>");
 		}	
 	}
 %>
-<jsp:include page="./common/footer.jsp" flush="false" />

@@ -4,11 +4,9 @@
 <%@ page import="bbs.Bbs" %>
 <%@ page import="bbs.BbsDAO" %>
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ include file="./common/var.jsp"%>
-<jsp:include page="./common/header.jsp" flush="false" />
-<jsp:include page="./common/nav.jsp" flush="false">
-	<jsp:param name="userID" value="<%= userID %>" />
-</jsp:include>
+<%@ include file="/common/var.jsp" %>
+<%@ include file="/common/header.jsp" %>
+<%@ include file="/common/nav.jsp" %>
 <%
 	int bbsID = 0;
 	if(request.getParameter("bbsID") != null){
@@ -65,4 +63,4 @@
 <script type="text/javascript">
 	var bbsID = <%= bbsID %>;
 </script>
-<jsp:include page="./common/footer.jsp" flush="false" />
+<%@ include file="/common/footer.jsp" %>

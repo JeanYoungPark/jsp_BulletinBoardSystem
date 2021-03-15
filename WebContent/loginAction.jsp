@@ -50,4 +50,3 @@
 		script.println("</script>");
 	}
 %>
-<%-- <jsp:include page="./common/footer.jsp" flush="false" /> --%>

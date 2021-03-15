@@ -4,13 +4,11 @@
  <%@ page import="bbs.Bbs" %>
  <%@ page import="bbs.BbsDAO" %>
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ include file="./common/var.jsp"%>
-<jsp:include page="./common/header.jsp" flush="false" />
-<jsp:include page="./common/nav.jsp" flush="false">
-	<jsp:param name="userID" value="<%= userID %>" />
-</jsp:include>
+<%@ include file="/common/var.jsp" %>
+<%@ include file="/common/header.jsp" %>
+<%@ include file="/common/nav.jsp" %>
 <%	
-	if(userID == null){
+	if(user.getUserID() == null){
 		PrintWriter script  = response.getWriter();
 		script.println("<script>");
 		script.println("alert('로그인을 하십시오.')");
@@ -26,15 +24,15 @@
 		PrintWriter script  = response.getWriter();
 		script.println("<script>");
 		script.println("alert('유효하지 않은 글입니다.')");
-		script.println("location.href='bbs.jsp'");
+		script.println("location.href='main.jsp'");
 		script.println("</script>");
 	}
 	Bbs bbs = new BbsDAO().getBbs(bbsID);
-	if(!userID.equals(bbs.getUserID())){
+	if(!(user.getUserID().equals(bbs.getUserID())) ){ //== 주소값 비교 equal 함수값 비교
 		PrintWriter script  = response.getWriter();
 		script.println("<script>");
 		script.println("alert('권한이 없습니다.')");
-		script.println("location.href='bbs.jsp'");
+		script.println("location.href='main.jsp'");
 		script.println("</script>");
 	}
 %>
@@ -60,4 +58,4 @@
 		</form>
 	</div>
 </div>
-<jsp:include page="./common/footer.jsp" flush="false" />
+<%@ include file="/common/footer.jsp" %>

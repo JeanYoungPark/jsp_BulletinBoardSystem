@@ -6,11 +6,8 @@
 <jsp:useBean id="bbs" class="bbs.Bbs" scope="page"/>
 <jsp:setProperty name="bbs" property="bbsTitle"/>
 <jsp:setProperty name="bbs" property="bbsContent"/>
-<%@ include file="./common/var.jsp"%>
-<jsp:include page="./common/header.jsp" flush="false" />
-<jsp:include page="./common/nav.jsp" flush="false">
-	<jsp:param name="userID" value="<%= userID %>" />
-</jsp:include>
+<%@ include file="/common/var.jsp" %>
+
 <%		
 	if(userID == null){
 		PrintWriter script  = response.getWriter();
@@ -43,4 +40,3 @@
 		}	
 	}
 %>
-<jsp:include page="./common/footer.jsp" flush="false" />

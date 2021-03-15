@@ -5,12 +5,6 @@
 <%@ page import="util.Utility" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("utf-8"); %>
-<%-- <jsp:useBean id="user" class="user.User" scope="page"/>
-<jsp:setProperty name="user" property="userID"/>
-<jsp:setProperty name="user" property="userPassword"/>
-<jsp:setProperty name="user" property="userName"/>
-<jsp:setProperty name="user" property="userGender"/>
-<jsp:setProperty name="user" property="userEmail"/> --%>
 
 <%		
 	String userID = null;
@@ -63,4 +57,3 @@
 		}	
 	}
 %>
-<jsp:include page="./common/footer.jsp" flush="false" />
