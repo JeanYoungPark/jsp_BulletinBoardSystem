@@ -7,9 +7,8 @@ public class Bbs {
 	private String bbsDate;
 	private String bbsContent;
 	private int bbsAvailable;
-	public int getBbsID() {
-		return bbsID;
-	}
+	private int bbsViewCount;
+	
 	public void setBbsID(int bbsID) {
 		this.bbsID = bbsID;
 	}
@@ -42,6 +41,15 @@ public class Bbs {
 	}
 	public void setBbsAvailable(int bbsAvailable) {
 		this.bbsAvailable = bbsAvailable;
+	}
+	public int getBbsViewCount() {
+		return bbsViewCount;
+	}
+	public void setBbsViewCount(int bbsViewCount) {
+		this.bbsViewCount = bbsViewCount;
+	}
+	public int getBbsID() {
+		return bbsID;
 	}
 	
 	

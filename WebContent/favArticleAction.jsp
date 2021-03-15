@@ -18,7 +18,8 @@
 	
 	//html로 만들어서 전달
 	for (int i = 0; i < list.size(); i++) {
-		val += "<li><a href='view.jsp?bbsID="+list.get(i).getBbsID()+"'>"+list.get(i).getBbsTitle()+"</a></li>";
+		val += "<li><a href='view.jsp?bbsID="+list.get(i).getBbsID()+"'>"+list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+				.replaceAll("\n", "<br>")+"</a></li>";
 	}
 	
 	obj.addProperty("result",val);
