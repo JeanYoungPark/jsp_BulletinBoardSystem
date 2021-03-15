@@ -197,7 +197,7 @@ public class BbsDAOTmp {
 			rs=pstmt.executeQuery();
 			rs.last();
 			int resultTmp = rs.getRow()/10; 
-			result = (rs.getRow()%5 == 0)?resultTmp:resultTmp+1;
+			result = (rs.getRow()%10 == 0)?resultTmp:resultTmp+1;
 			rs.beforeFirst();
 		} catch (Exception e) {
 			e.printStackTrace();
