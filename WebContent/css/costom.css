@@ -47,6 +47,18 @@ a:hover {
 }
 
 /* main article */
+#board thead tr {
+	width:100%;
+	background-color:#eee;
+}
+#board thead th {
+	text-align:center;
+}
+#board tbody tr td:nth-child(2) {
+	text-align:left;
+}
+
+/* main fav article */
 
 #favArticle {
 	border:1px solid #ddd; padding:20px;
@@ -58,6 +70,7 @@ a:hover {
 	display:block; padding:5px 0; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;
 }
 
+/* main pager */
 #pg {
 	text-align:center;
 }
@@ -69,6 +82,7 @@ a:hover {
 	color:red;
 }
 
+/* view */
 #view .title {
 	position:relative; padding-bottom:10px; border-bottom:1px solid #ccc;
 }

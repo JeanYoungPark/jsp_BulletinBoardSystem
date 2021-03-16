@@ -21,8 +21,8 @@
 	String val = "";
 	for (int i = 0; i < list.size(); i++) {
 		val += "<tr><td>"+list.get(i).getBbsID()+"</td><td><a href='view.jsp?bbsID="+list.get(i).getBbsID()+"'>"+list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
-				.replaceAll("\n", "<br>")+"</a></td><td>"+list.get(i).getUserID()+"</td><td>"+list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시"
-				+ list.get(i).getBbsDate().substring(14, 16) + "분</td></tr>";
+				.replaceAll("\n", "<br>")+"</a></td><td>"+list.get(i).getUserID()+"</td><td>"+list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + ":"
+				+ list.get(i).getBbsDate().substring(14, 16) + "</td></tr>";
 	}
 	
 	//페이저
@@ -55,10 +55,10 @@
 				style="text-align: center; border: 1px solid #ddd">
 				<thead>
 					<tr>
-						<th style="background-color: #eee; text-align: center;">번호</th>
-						<th style="background-color: #eee; text-align: center;">제목</th>
-						<th style="background-color: #eee; text-align: center;">작성자</th>
-						<th style="background-color: #eee; text-align: center;">작성일</th>
+						<th width="10%">번호</th>
+						<th>제목</th>
+						<th width="15%">작성자</th>
+						<th width="20%">작성일</th>
 					</tr>
 				</thead>
 				<tbody>
