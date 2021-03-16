@@ -23,35 +23,15 @@
 %>
 <div id="view" class="container">
 	<div class="row">
-		<table class="table table-striped" style="text-align:center; border:1px solid #ddd">
-			<thead>
-				<tr>
-					<th colspan="3" style="background-color:#eee; text-align:center;">게시판 글 보기</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td style="width:20%">글 제목</td>
-					<td colspan=2"><%= bbs.getBbsTitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></td>
-				</tr>
-				<tr>
-					<td>작성자</td>
-					<td colspan=2"><%= bbs.getUserID() %></td>
-				</tr>
-				<tr>
-					<td>작성일자</td>
-					<td colspan="2"><%= bbs.getBbsDate().substring(0,11) + bbs.getBbsDate().substring(11,13) + "시" + bbs.getBbsDate().substring(14,16) + "분" %></td>
-				</tr>
-				<tr>
-					<td>뷰 수</td>
-					<td colspan="2"><%= bbs.getBbsViewCount() %></td>
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td colspan="2" style="min-height:200px; text-align:left;"><%= bbs.getBbsContent().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="title">
+			<h2><%= bbs.getBbsTitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></h2>
+			<p>
+				<span class="by">by.<%= bbs.getUserID() %></span>
+				<span class="date"><%= bbs.getBbsDate().substring(0,11) + bbs.getBbsDate().substring(11,13) + ":" + bbs.getBbsDate().substring(14,16) %></span>
+			</p>
+			<span class="view"><i class="far fa-eye"></i><%= bbs.getBbsViewCount() %></span>
+		</div>
+		<p class="content"><%= bbs.getBbsContent().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></p>
 		<a href="main.jsp" class="btn btn-primary">목록</a>
 		<%
 			if(userID != null && userID.equals(bbs.getUserID())){

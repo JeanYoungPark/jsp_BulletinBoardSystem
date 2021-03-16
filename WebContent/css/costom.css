@@ -69,3 +69,27 @@ a:hover {
 	color:red;
 }
 
+#view .title {
+	position:relative; padding-bottom:10px; border-bottom:1px solid #ccc;
+}
+#view .title h2 {
+	margin-bottom:15px;
+}
+#view .title .by {
+	font-size:15px; font-style:italic; margin-right:15px;
+}
+#view .title .date {
+	font-size:13px; color:#777;
+}
+#view .title .view {
+	position:absolute; right:0; bottom:10px;
+}
+#view .title .view i {
+	margin-right:5px;
+}
+#view .content {
+	min-height:500px;
+	padding:20px 0;
+	border-bottom:1px solid #ccc;
+	margin-bottom:20px;
+}
