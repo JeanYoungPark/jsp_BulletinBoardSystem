@@ -30,6 +30,16 @@ a:hover {
 	color:#000;
 	text-decoration:none;
 }
+table {
+	text-align:center;border:1px solid #ddd;
+}
+table thead tr {
+	width:100%;
+	background-color:#eee;
+}
+table thead th {
+	text-align:center;
+}
 
 /* main login box */
 
@@ -47,13 +57,6 @@ a:hover {
 }
 
 /* main article */
-#board thead tr {
-	width:100%;
-	background-color:#eee;
-}
-#board thead th {
-	text-align:center;
-}
 #board tbody tr td:nth-child(2) {
 	text-align:left;
 }

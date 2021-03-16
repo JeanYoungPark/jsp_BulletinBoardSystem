@@ -187,6 +187,27 @@ public class BbsDAOTmp {
 		return list;
 	}
 	
+	public ArrayList<Bbs> myArticleList(String userID) {
+		String SQL = "SELECT * FROM bbs WHERE bbsAvailable = 1 AND userID=? ORDER BY bbsViewCount DESC LIMIT 5";
+		ArrayList<Bbs> list = new ArrayList<Bbs>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setBbsDate(rs.getString(4));
+				list.add(bbs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public int boardNum() {
 		String SQL = "SELECT * FROM bbs";
 		int result = 0;

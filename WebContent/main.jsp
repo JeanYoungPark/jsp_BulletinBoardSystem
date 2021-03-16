@@ -51,8 +51,7 @@
 <div class="container">
 	<div class="row">
 		<div id="board" class="pull-left col-lg-9">
-			<table class="table table-striped"
-				style="text-align: center; border: 1px solid #ddd">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th width="10%">번호</th>
