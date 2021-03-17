@@ -110,3 +110,44 @@ table thead th {
 	border-bottom:1px solid #ccc;
 	margin-bottom:20px;
 }
+
+/* mypage */
+#userModify h2{
+	text-align:center;
+	margin-bottom:40px;
+}
+#userModify .form {
+	width:400px;
+	margin:0 auto;
+}
+#userModify p {
+	margin-bottom:20px;
+}
+#userModify label {
+	width:100px;
+}
+#userModify input {
+	width:296px;
+	height:30px;
+	padding:0 10px;
+}
+#userModify .submit {
+	text-align:center;
+	padding:20px 0;
+}
+#userModify .submit input {
+	width:150px;
+}
+.mypageNav {
+	border-bottom: 1px solid #ccc;
+}
+.mypageNav li {
+	border:1px solid #ccc;
+	border-bottom:0;
+	background:#f8f8f8;
+}
+.mypageNav li a {
+	display:block;
+	text-align:center;
+	padding:20px 0;
+}

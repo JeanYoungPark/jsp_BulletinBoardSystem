@@ -28,18 +28,28 @@
 <div class="row">
 	<div class="container">
 		<%@ include file="/common/mypageNav.jsp" %>
-		<div class="col-lg-10">
-			<h3>내가 쓴 게시글</h3>
-			<div>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>제목</th>
-							<th width="20%">작성일</th>
-						</tr>
-					</thead>
-					<tbody><%= myList %></tbody>
-				</table>
+		<div id="userModify" class="col-lg-10">
+			<h2>회원정보 수정</h2>
+			<div class="form">
+				<form method="post" action="userModifyAction.jsp">
+					<p>
+						<label for="name">이름</label>
+						<input id="name" name="name" type="text" value="<%= user.getUserName() %>">
+					</p>
+					<p>
+						<label for="email">이메일</label>
+						<input id="email" name="email" type="text" value="<%= user.getUserEmail() %>">
+					</p>
+					<p>
+						<label for="password1">비밀번호</label>
+						<input id="password1" name="password1" type="password">
+					</p>
+					<p>
+						<label for="password2">비밀번호 확인</label>
+						<input id="password2" name="password2" type="password">
+					</p>
+					<div class="submit"><input type="submit" value="수정"></div>
+				</form>
 			</div>
 		</div>
 	</div>
