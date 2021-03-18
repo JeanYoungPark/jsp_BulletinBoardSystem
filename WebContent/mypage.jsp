@@ -20,8 +20,8 @@
 	
 	String myList = "";
 	for(int i = 0; i < list.size(); i++){
-		myList += "<tr><td>"+list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
-				.replaceAll("\n", "<br>")+"</td><td>"+list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + ":"
+		myList += "<tr><td><a href='view.jsp?bbsID="+list.get(i).getBbsID()+"'>"+list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+				.replaceAll("\n", "<br>")+"</a></td><td>"+list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + ":"
 						+ list.get(i).getBbsDate().substring(14, 16)+"</td></tr>";
 	}
 %>
