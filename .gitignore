@@ -1,3 +1,4 @@
 /build/
+/src/image/ImageDAO.java
 /src/user/UserDAO.java
 /src/bbs/BbsDAO.java
