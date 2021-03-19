@@ -24,4 +24,11 @@ $(document).ready(function(){
 			}
 		});
 	}
+	
+	//회원정보수정
+	if($("#userModify").length){
+		$("input[name='image']").on("change",function(){
+			$("form[name='imageUpload']").submit();
+		});
+	}
 });

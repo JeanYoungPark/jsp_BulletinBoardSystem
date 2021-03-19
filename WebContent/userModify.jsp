@@ -24,6 +24,16 @@
 				.replaceAll("\n", "<br>")+"</td><td>"+list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + ":"
 						+ list.get(i).getBbsDate().substring(14, 16)+"</td></tr>";
 	}
+	
+	
+	String imgHtml = "";
+	ServletContext context = getServletContext();
+	String realFolder = context.getRealPath("upload");
+	
+	if(userImg.getFileName() != null){
+		imgHtml += "<img src="+ realFolder+ "\\" + userImg.getFileName()+"'>";
+	}
+	//이미지 나오는거 확인하기
 %>
 <div class="row">
 	<div class="container">
@@ -31,13 +41,16 @@
 		<div id="userModify" class="col-lg-10">
 			<h2>회원정보 수정</h2>
 			<div class="form">
-				<form method="post" enctype="multipart/form-data" action="userModifyAction.jsp">
+				<form name="imageUpload" method="post" enctype="multipart/form-data" action="imageUploadAction.jsp">
 					<p class="img">
 						<label for="image">
+							<%= imgHtml %>
 							<i class="fas fa-camera"></i>
 						</label>
 						<input id="image" type="file" name="image">
 					</p>
+				</form>
+				<form method="post" action="userModifyAction.jsp">
 					<p>
 						<label for="name">이름</label>
 						<input id="name" name="name" type="text" value="<%= user.getUserName() %>">
