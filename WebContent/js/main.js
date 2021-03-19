@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	//메인
 	if($("#favArticle").length){
 		$.ajax({
 		   	url:"./favArticleAction.jsp",
@@ -11,6 +12,7 @@ $(document).ready(function(){
 	   });
 	}
 	
+	//게시글 보기
 	if($("#view").length){
 		$.ajax({
 		   	url:"./viewAction.jsp",

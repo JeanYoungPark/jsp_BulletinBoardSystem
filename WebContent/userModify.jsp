@@ -31,7 +31,13 @@
 		<div id="userModify" class="col-lg-10">
 			<h2>회원정보 수정</h2>
 			<div class="form">
-				<form method="post" action="userModifyAction.jsp">
+				<form method="post" enctype="multipart/form-data" action="userModifyAction.jsp">
+					<p class="img">
+						<label for="image">
+							<i class="fas fa-camera"></i>
+						</label>
+						<input id="image" type="file" name="image">
+					</p>
 					<p>
 						<label for="name">이름</label>
 						<input id="name" name="name" type="text" value="<%= user.getUserName() %>">

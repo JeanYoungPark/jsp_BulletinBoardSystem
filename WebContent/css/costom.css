@@ -105,20 +105,28 @@ table thead th {
 	margin-right:5px;
 }
 #view .content {
-	min-height:500px;
-	padding:20px 0;
-	border-bottom:1px solid #ccc;
-	margin-bottom:20px;
+	min-height:500px; padding:20px 0; border-bottom:1px solid #ccc; margin-bottom:20px;
 }
 
 /* mypage */
 #userModify h2{
-	text-align:center;
-	margin-bottom:40px;
+	text-align:center; margin-bottom:40px;
 }
 #userModify .form {
-	width:400px;
-	margin:0 auto;
+	width:400px; margin:0 auto;
+}
+#userModify .img {
+	text-align:center;
+	margin-bottom:30px;
+}
+#userModify .img label {
+	position:relative; height:100px; background:#ccc; border-radius:100%; cursor:pointer;
+}
+#userModify .img label i {
+	position:absolute; font-size:20px;right:3px;bottom:10px;
+}
+#userModify .img input{
+	position: absolute; width:0; height:0; padding:0; overflow:hidden; border:0;
 }
 #userModify p {
 	margin-bottom:20px;
@@ -127,13 +135,10 @@ table thead th {
 	width:100px;
 }
 #userModify input {
-	width:296px;
-	height:30px;
-	padding:0 10px;
+	width:296px; height:30px; padding:0 10px;
 }
 #userModify .submit {
-	text-align:center;
-	padding:20px 0;
+	text-align:center; padding:20px 0;
 }
 #userModify .submit input {
 	width:150px;
@@ -142,12 +147,8 @@ table thead th {
 	border-bottom: 1px solid #ccc;
 }
 .mypageNav li {
-	border:1px solid #ccc;
-	border-bottom:0;
-	background:#f8f8f8;
+	border:1px solid #ccc; border-bottom:0; background:#f8f8f8;
 }
 .mypageNav li a {
-	display:block;
-	text-align:center;
-	padding:20px 0;
+	display:block; text-align:center; padding:20px 0;
 }
