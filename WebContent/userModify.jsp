@@ -27,11 +27,9 @@
 	
 	
 	String imgHtml = "";
-	ServletContext context = getServletContext();
-	String realFolder = context.getRealPath("upload");
 	
 	if(userImg.getFileName() != null){
-		imgHtml += "<img src="+ realFolder+ "\\" + userImg.getFileName()+"'>";
+		imgHtml += "<img src='upload/" + userImg.getFileName()+"'>";
 	}
 	//이미지 나오는거 확인하기
 %>
@@ -41,7 +39,7 @@
 		<div id="userModify" class="col-lg-10">
 			<h2>회원정보 수정</h2>
 			<div class="form">
-				<form name="imageUpload" method="post" enctype="multipart/form-data" action="imageUploadAction.jsp">
+				<form name="imageUpload" method="post" enctype="multipart/form-data" action="imageUploadAction.jsp" accept-charset="UTF-8">
 					<p class="img">
 						<label for="image">
 							<%= imgHtml %>

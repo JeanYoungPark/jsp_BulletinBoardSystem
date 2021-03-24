@@ -116,14 +116,16 @@ table thead th {
 	width:400px; margin:0 auto;
 }
 #userModify .img {
-	text-align:center;
-	margin-bottom:30px;
+	position:relative; text-align:center; margin-bottom:30px;
 }
 #userModify .img label {
-	position:relative; height:100px; background:#ccc; border-radius:100%; cursor:pointer;
+	overflow:hidden; height:100px; background:#ccc; border-radius:100%; cursor:pointer;
 }
-#userModify .img label i {
-	position:absolute; font-size:20px;right:3px;bottom:10px;
+#userModify .img label img {
+	width:100%; height:auto;
+}
+#userModify .img i {
+	position:absolute; font-size:20px;left:225px;bottom:10px;
 }
 #userModify .img input{
 	position: absolute; width:0; height:0; padding:0; overflow:hidden; border:0;
